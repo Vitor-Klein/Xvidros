@@ -1,0 +1,27 @@
+		/*logo*/
+
+		.logo{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: rgb(0, 0, 0);
+			border-radius: 25px;
+			padding: 15px;
+			width: 800px;
+			height: 150px;
+			margin: auto;
+			margin-top: 20px;
+			color: white;
+			border: 2px solid#B22222;
+			
+		}
+		.logo_h2{
+			color:#B22222;
+			font: normal 120px Arial;
+			
+		}
+		
+		.logo_h4{
+			color: white;
+			font: normal 120px Arial;
+		}

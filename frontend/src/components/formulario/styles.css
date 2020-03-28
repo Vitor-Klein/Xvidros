@@ -1,0 +1,82 @@
+body {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font: 20pt Arial;
+}
+
+#formulario_interno {
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid rgb(255, 0, 0);
+    border-radius: 25px;
+    
+}
+
+form div+div {
+    margin-top: 1em;
+}
+
+input,textarea {
+
+    font: 1em sans-serif;
+    width: 300px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #999;
+}
+
+textarea {
+    vertical-align: top;
+    height: 5em;
+    resize: vertical;
+}
+
+
+hr{
+    color: red;
+    border: 2px solid red;
+}
+#texto_cadastro {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-left: 500px;
+    color: red;
+
+}
+
+
+#email,#nome {
+    border-radius: 10px;
+    border: 2px solid red;
+    text-align: center;
+    font-family:serif;
+}
+
+#msg {
+    border-radius: 25px;
+    border: 2px solid red;
+    width: 350px;
+    text-align: center;
+    font-family:serif;
+}
+
+#idade {
+    border-radius: 10px;
+    border: 2px solid red;
+    width: 175px;
+    text-align: center;
+    font-family:serif;
+}
+
+#botao {
+    width: 350px;
+    height: 35px;
+    border: 2px solid red;
+    border-radius: 25px;
+    margin-left: -65px;
+}
+
+#campo_nome,#campo_idade,#campo_email,#campo_mensagem{
+    padding: 10px;
+}

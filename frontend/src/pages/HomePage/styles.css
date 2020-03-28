@@ -1,0 +1,49 @@
+.product-info {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+    
+}
+
+.product-info article {
+    background: #FFF;
+    border: 0.5px solid  #808080;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(44, 41, 41);
+    color: #FFF;
+    text-align: center;
+}
+
+.product-info article p {
+    font-size: 16px;
+    color: #999;
+    margin-top: 5px;
+    line-height: 24px;
+}
+
+.product-info article a {
+    height: 42px;
+    width: 580px;
+    border-radius: 5px;
+    border: 2px solid #B22222;
+    background: none;
+    margin-top: 10px;
+    color: #B22222;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;  
+    display: inline-flex;
+    justify-content: center;
+    align-items: center; 
+    transition: all 0.2s;
+}
+
+.product-info article a:hover {
+    background: #B22222;
+    color: #fff;
+}
+
+
+

@@ -1,0 +1,16 @@
+#main-btndiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px;
+}
+
+#main-button {
+    background: red;
+    width: 125px;
+    height: 50px;
+    margin-top: 50px;
+    border-radius: 10px;
+    border: 1px solid red;
+    color: wheat;
+}
