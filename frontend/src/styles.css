@@ -5,8 +5,15 @@
     box-sizing: border-box;
 }
 
-body{
+.body{
     font-family: Arial, Helvetica, sans-serif;
-    background: #363636;
     color: #333;
+}
+
+.Dark{
+    background: #363636;
+}
+
+.Ligth{
+    background: #FFF;
 }

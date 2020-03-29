@@ -41,11 +41,27 @@ export default class Main extends Component {
         this.loadProducts(pageNumber)
     }
 
+    darkMode = () => {
+        const body = document.querySelector('.body')
+        body.classList.remove("Ligth")
+        body.classList.add("Dark")
+    }
+
+    ligthMode = () => {
+        const body = document.querySelector('.body')
+        body.classList.add("Ligth")
+    }
+
     render() {
         const { products, page, productInfo } = this.state
 
         return(
             <div className="product-list">
+                <div className="switch">		
+                    <button onClick={this.darkMode} className="dark">Dark</button>
+                    <button onClick={this.ligthMode} className="ligth">Ligth</button>
+                </div>
+
             {products.map(product =>(
                 <article key={product._id}>
                     <strong>{product.title}</strong>

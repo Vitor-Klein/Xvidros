@@ -73,3 +73,22 @@
     opacity: 0.5;
 }
 
+.switch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.dark{
+    border-radius: 8px 0px 0px 8px;
+    border: 1px solid #B22222;
+    padding: 5px;
+}
+
+.ligth{
+    border-radius: 0px 8px 8px 0px;
+    border: 1px solid #B22222;
+    padding: 5px;
+}
+
