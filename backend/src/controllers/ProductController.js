@@ -1,38 +1,58 @@
-const mongoose = require("mongoose")
-
-const Product = mongoose.model("Product")
+const connection = require("../database/connection")
 
 module.exports = {
-    async index(req,res){
-        const { page = 1 } = req.query
-        const products = await Product.paginate( {}, { page, limit: 5 })
+  async index(request, response) {
+    const { page = 1 } = request.query
 
-        return res.json(products)
-    },
+    const[count] = await connection('products').count()
 
-    async show(req,res) {
-        const product = await Product.findById(req.params.id)
+    const products = await connection('products')
+      .join('lojas', 'loja_id', '=', 'products.loja_id')
+      .limit(5)
+      .offset((page - 1) * 5)
+      .select([
+        'products.*', 
+        'lojas.name', 
+        'lojas.email', 
+        'lojas.whatsapp', 
+        'lojas.city', 
+        'lojas.uf'
+      ])
 
-        return res.json(product)
-    },
+      response.header('X-Total-Count', count['count(*)'])
 
-    async store(req,res) {
-        const product = await Product.create(req.body)
+    return response.json(products)
+  },
 
-        return res.json(product)
-    },
+  async create(request,response) {
+    const { title, description, value } = request.body
+    const loja_id = request.headers.authorization
 
-    async update(req,res){
-        const product = await Product.findByIdAndUpdate(req.params.id, req.body, { 
-            new:true 
-        })
+    const [id] = await connection('products').insert({
+      title,
+      description,
+      value,
+      loja_id,
+    })
 
-        return res.json(product)
-    },
+    return response.json({ id })
+  },
 
-    async destroy(req,res){
-        await Product.findByIdAndRemove(req.params.id)
+  async delete(request, response) {
+    const { id } = request.params
+    const loja_id = request.headers.authorization
 
-        return res.send()
-    }
+    const product = await connection('products')
+      .where('id', id)
+      .select('loja_id')
+      .first()
+
+      if(product.loja_id !== loja_id) {
+        return response.status(401).json({ error: 'Operation not permitted' })
+      }
+
+      await connection('products').where('id', id).delete()
+
+      return response.status(204).send()
+  }
 }

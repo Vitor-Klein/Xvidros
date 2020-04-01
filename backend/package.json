@@ -1,11 +1,10 @@
 {
-  "name": "node-api",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,9 +12,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.9.5",
-    "mongoose-paginate": "^5.0.3",
-    "require-dir": "^1.2.0"
+    "knex": "^0.20.13",
+    "sqlite3": "^4.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
