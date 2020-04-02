@@ -1,17 +1,21 @@
 import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Logon from './pages/Logon'
+import Register from './pages/Register'
+import Profile from './pages/Profile'
+import NewIncident from './pages/NewIncident'
 
-import Main from './pages/Main'  
-import Detail from "./pages/Detail"
+export default function Routes() {
+    return (
+        <BrowserRouter>
+            <Switch>
+              <Route path='/' exact component={Logon} />  
+              <Route path='/register' component={Register} />  
 
-const Routes = () => (
-    <BrowserRouter>
-        <Switch>
-            <Route exact  path="/" component={Main}/>
-            <Route path="/products/:id" component={Detail}/>
-        </Switch>
-    </BrowserRouter>
-)
-
-export default Routes
+              <Route path='/profile' component={Profile} />
+              <Route path='/products/new' component={NewIncident} />
+            </Switch>
+        </BrowserRouter>
+    )
+}
