@@ -12,7 +12,7 @@
 .register-container .content {
     width: 100%;
     padding: 96px;
-    background: #f0f0f5;
+    background: #4F4F4F;
     box-shadow: 0 0 100px rgba(0,0,0,0.1);
     border-radius: 8px;
 
@@ -33,7 +33,7 @@
 
 .register-container .content section p{
     font-size: 18px;
-    color: #737380;
+    color: #FFF;
     line-height: 32px;
 }
     

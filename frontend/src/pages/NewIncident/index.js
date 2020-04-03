@@ -6,7 +6,7 @@ import api from '../../services/api'
 
 import './styles.css'
 
-import logoImg from '../../assets/logo.svg'
+import logoImg from '../../assets/logo.png'
 
 export default function NewProduct () {
     const [title, setTitle] = useState('')

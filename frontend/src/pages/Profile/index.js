@@ -4,7 +4,7 @@ import { FiPower, FiTrash2 } from 'react-icons/fi'
 
 import api from '../../services/api'
 
-import logoImg from '../../assets/logo.svg'
+import logoImg from '../../assets/logo.png'
 
 import './styles.css'
 
@@ -72,7 +72,7 @@ export default function Profile() {
                     <p>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL' }).format(product.value)}</p>
 
                     <button onClick={() => handleDeleteProducts(product.id)} type="button">
-                        <FiTrash2 size={20} color="#a8a8b3" />
+                        <FiTrash2 size={20} color="#C0C0C0" />
                     </button>
                 </li>
                 ))}
