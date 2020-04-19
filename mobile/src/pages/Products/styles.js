@@ -38,24 +38,24 @@ export default StyleSheet.create({
         color: '#737380',
     },
 
-    incidentList: {
+    productList: {
         marginTop: 32,
     },
 
-    incident: {
+    product: {
         padding: 24,
         borderRadius: 8,
         backgroundColor: '#4F4F4F',
         marginBottom: 16,
     },
 
-    incidentProperty:{
+    productProperty:{
         fontSize: 14,
         color: '#D3D3D3',
         fontWeight: 'bold',
     },
 
-    incidentValue:{
+    productValue:{
        marginTop: 8,
        fontSize: 15, 
        marginBottom: 24,

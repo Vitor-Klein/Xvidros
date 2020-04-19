@@ -9,41 +9,41 @@ import LogoImg from '../../assets/logo.png'
 
 import styles from './styles'
 
-export default function Incidents() {
-    const [incidents, setIncidents] = useState([])
+export default function Products() {
+    const [products, setProducts] = useState([])
     const [total, setTotal] = useState(0)
     const [page, setPage] = useState(1)
     const [loading, setLoading] = useState(false)
 
     const navigation = useNavigation()
 
-    function navigateToDetail(incident) {
-        navigation.navigate('Detail', { incident })
+    function navigateToDetail(product) {
+        navigation.navigate('Detail', { product })
     }
 
-    async function loadIncidents() {
+    async function loadProducts() {
         if (loading) {
             return
         }
 
-        if (total > 0 & incidents.length === total) {
+        if (total > 0 & products.length === total) {
             return
         }
 
         setLoading(true)
 
-        const response = await api.get('incidents', {
+        const response = await api.get('products', {
             params: { page } 
         })
 
-        setIncidents([...incidents, ...response.data])
+        setProducts([...products, ...response.data])
         setTotal(response.headers['x-total-count'])
         setPage(page + 1)
         setLoading(false)
     }
 
     useEffect(() => {
-        loadIncidents()
+        loadProducts()
     }, [])
 
     return(
@@ -51,39 +51,39 @@ export default function Incidents() {
            <View style={styles.header}>
                 <Image source={LogoImg} />
                 <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}>{total} casos</Text>
+                    Total de <Text style={styles.headerTextBold}>{total} produtos</Text>
                 </Text>
            </View>
 
            <Text style={styles.title}>Bem-Vindo!</Text>
-           <Text style={styles.description}>Escolha um dos casos abaixo e salve o dia</Text>
+           <Text style={styles.description}>Escolha um dos produtos abaixo e adquira-o já</Text>
 
            <FlatList 
-                data={incidents}
-                style={styles.incidentList}
-                keyExtractor={incident => String(incident.id)}
+                data={products}
+                style={styles.productList}
+                keyExtractor={product => String(product.id)}
                 //showsVerticalScrollIndicator={false}
-                onEndReached={loadIncidents}
+                onEndReached={loadProducts}
                 onEndReachedThreshold={0.2}
-                renderItem={({ item: incident }) => (
-                    <View style={styles.incident}>
-                   <Text style={styles.incidentProperty}>ONG:</Text>
-                   <Text style={styles.incidentValue}>{incident.name}</Text>
+                renderItem={({ item: product }) => (
+                    <View style={styles.product}>
+                   <Text style={styles.productProperty}>LOJA:</Text>
+                   <Text style={styles.productValue}>{product.name}</Text>
 
-                   <Text style={styles.incidentProperty}>CASO:</Text>
-                   <Text style={styles.incidentValue}>{incident.title}</Text>
+                   <Text style={styles.productProperty}>PRODUTO:</Text>
+                   <Text style={styles.productValue}>{product.title}</Text>
 
-                   <Text style={styles.incidentProperty}>Valor:</Text>
-                   <Text style={styles.incidentValue}>
+                   <Text style={styles.productProperty}>Valor:</Text>
+                   <Text style={styles.productValue}>
                        {Intl.NumberFormat('pt-BR', { 
                            style: 'currency', 
                            currency: 'BRL' 
-                        }).format(incident.value)}
+                        }).format(product.value)}
                     </Text>
 
                    <TouchableOpacity 
                     style={styles.detailButton} 
-                    onPress={() => navigateToDetail(incident)}
+                    onPress={() => navigateToDetail(product)}
                    >
                        <Text style={styles.detailButtonText}>Ver mais detalhes</Text>
                        <Feather name="arrow-right" size={16} color="#E02041" />

@@ -13,8 +13,8 @@ export default function Detail() {
     const navigation = useNavigation()
     const route = useRoute()
 
-    const incident = route.params.incident
-    const message = `Olá ${incident.name} estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}`
+    const product = route.params.product
+    const message = `Olá ${product.name} estou entrando em contato pois gostaria de negociar o valor referente a "${product.title}" com o valor de ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.value)}`
 
     function navigateBack() {
         navigation.goBack()
@@ -22,14 +22,14 @@ export default function Detail() {
 
     function sendMail() {
         MailComposer.composeAsync({
-            subject: `Herói do caso: ${incident.title}`,
-            recipients: [incident.email],
+            subject: `Comprador : ${product.title}`,
+            recipients: [product.email],
             body: message,
         })
     }
 
     function sendWhatsapp() {
-        Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`)
+        Linking.openURL(`whatsapp://send?phone=${product.whatsapp}&text=${message}`)
     }
 
     return(
@@ -42,25 +42,25 @@ export default function Detail() {
              </TouchableOpacity>
            </View>
 
-           <View style={styles.incident}>
-           <Text style={[styles.incidentProperty, { marginTop: 0 }]}>ONG:</Text>
-           <Text style={styles.incidentValue}>{incident.name} de {incident.city}/{incident.uf}</Text>
+           <View style={styles.product}>
+           <Text style={[styles.productProperty, { marginTop: 0 }]}>LOJA:</Text>
+           <Text style={styles.productValue}>{product.name} de {product.city}/{product.uf}</Text>
 
-            <Text style={styles.incidentProperty}>CASO:</Text>
-            <Text style={styles.incidentValue}>{incident.title}</Text>
+            <Text style={styles.productProperty}>PRODUTO:</Text>
+            <Text style={styles.productValue}>{product.title}</Text>
 
-            <Text style={styles.incidentProperty}>Valor:</Text>
-            <Text style={styles.incidentValue}>
+            <Text style={styles.productProperty}>Valor:</Text>
+            <Text style={styles.productValue}>
                 {Intl.NumberFormat('pt-BR', { 
                     style: 'currency', 
                     currency: 'BRL' 
-                }).format(incident.value)}
+                }).format(product.value)}
             </Text>
            </View>
 
            <View style={styles.contactBox}>
-               <Text style={styles.heroTitle}>Salve o dia!</Text>
-               <Text style={styles.heroTitle}>Seja o herói desse caso.</Text>
+               <Text style={styles.heroTitle}>Compre agóra!</Text>
+               <Text style={styles.heroTitle}>Enquanto ainda pode.</Text>
                <Text style={styles.heroDescription}>Entre em contato</Text>
 
                <View style={styles.actions}>

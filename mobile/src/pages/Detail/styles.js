@@ -15,7 +15,7 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
 
-    incident: {
+    product: {
         padding: 24,
         borderRadius: 8,
         backgroundColor: '#4F4F4F',
@@ -23,15 +23,15 @@ export default StyleSheet.create({
         marginTop: 48,
     },
 
-    incidentProperty:{
+    productProperty:{
         fontSize: 14,
         color: '#D3D3D3',
         fontWeight: 'bold',
-        marginBottom: 24,
+        marginTop: 24,
     },
 
-    incidentValue:{
-       marginTop: 8,
+    productValue:{
+       marginTop: 10,
        fontSize: 15, 
        color: '#C0C0C0',
     },
